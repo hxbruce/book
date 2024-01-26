@@ -13,7 +13,7 @@ import com.walletconnect.web3.wallet.client.Web3Wallet
 
 
 class MainActivity : AppCompatActivity() {
-    ///aa
+    //aa
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
