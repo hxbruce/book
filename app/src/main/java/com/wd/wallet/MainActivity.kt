@@ -1,6 +1,7 @@
 package com.wd.wallet
 
 import android.app.Application
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.walletconnect.android.Core
@@ -27,8 +28,8 @@ class MainActivity : AppCompatActivity() {
             icons =listOf("R.mipmap.ic_launcher")/*list of icon url strings*/,
             redirect = "kotlin-wallet-wc:/request" // Custom Redirect URI
         )
-//爆红
-//        CoreClient.initialize(metaData = appMetaData,relayServerUrl = serverUrl, connectionType = connectionType, application = this )
+
+//        CoreClient.initialize(metaData = appMetaData,relayServerUrl = serverUrl, connectionType = connectionType, application = this.application)
 
         val initParams = Wallet.Params.Init(core = CoreClient)
 
@@ -75,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         val sessionProposal: Wallet.Model.SessionProposal? = sessionProposalInstance /* an object received by `fun onSessionProposal(sessionProposal: Wallet.Model.SessionProposal)` in `Web3Wallet.WalletDelegate` */
         val sessionNamespaces =
             sessionProposal?.let { Web3Wallet.generateApprovedNamespaces(it, supportedNamespaces) }
-//爆红
+
 //        val approveParams: Wallet.Params.SessionApprove = Wallet.Params.SessionApprove(proposerPublicKey, sessionNamespaces)
 //        Web3Wallet.approveSession(approveParams) { error -> /*callback for error while approving a session*/ }
 
